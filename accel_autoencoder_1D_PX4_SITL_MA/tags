@@ -1,0 +1,32 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BS	train_conv_autoencoder.py	/^BS = 32$/;"	v
+ConvAutoencoder	pyimagesearch/convautoencoder.py	/^class ConvAutoencoder:$/;"	c
+EPOCHS	train_conv_autoencoder.py	/^EPOCHS = 25$/;"	v
+H	train_conv_autoencoder.py	/^H = autoencoder.fit($/;"	v
+N	train_conv_autoencoder.py	/^N = np.arange(0, EPOCHS)$/;"	v
+ap	train_conv_autoencoder.py	/^ap = argparse.ArgumentParser()$/;"	v
+args	train_conv_autoencoder.py	/^args = vars(ap.parse_args())$/;"	v
+batch_size	train_conv_autoencoder.py	/^	batch_size=BS)$/;"	v
+build	pyimagesearch/convautoencoder.py	/^	def build(width, height, depth, filters=(32, 64), latentDim=16):$/;"	m	class:ConvAutoencoder
+decoded	train_conv_autoencoder.py	/^decoded = autoencoder.predict(testX)$/;"	v
+epochs	train_conv_autoencoder.py	/^	epochs=EPOCHS,$/;"	v
+help	train_conv_autoencoder.py	/^	help="# number of samples to visualize when decoding")$/;"	v
+help	train_conv_autoencoder.py	/^	help="path to output plot file")$/;"	v
+help	train_conv_autoencoder.py	/^	help="path to output visualization file")$/;"	v
+opt	train_conv_autoencoder.py	/^opt = Adam(lr=1e-3)$/;"	v
+original	train_conv_autoencoder.py	/^	original = (testX[i] * 255).astype("uint8")$/;"	v
+output	train_conv_autoencoder.py	/^	output = np.hstack([original, recon])$/;"	v
+outputs	train_conv_autoencoder.py	/^		outputs = np.vstack([outputs, output])$/;"	v
+outputs	train_conv_autoencoder.py	/^		outputs = output$/;"	v
+outputs	train_conv_autoencoder.py	/^outputs = None$/;"	v
+recon	train_conv_autoencoder.py	/^	recon = (decoded[i] * 255).astype("uint8")$/;"	v
+testX	train_conv_autoencoder.py	/^testX = np.expand_dims(testX, axis=-1)$/;"	v
+testX	train_conv_autoencoder.py	/^testX = testX.astype("float32") \/ 255.0$/;"	v
+trainX	train_conv_autoencoder.py	/^trainX = np.expand_dims(trainX, axis=-1)$/;"	v
+trainX	train_conv_autoencoder.py	/^trainX = trainX.astype("float32") \/ 255.0$/;"	v
+validation_data	train_conv_autoencoder.py	/^	validation_data=(testX, testX),$/;"	v

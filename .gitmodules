@@ -1,0 +1,3 @@
+[submodule "Firmware_clone_solo"]
+	path = Firmware_clone_solo
+	url = https://github.com/jinseobjeong/PX4_Firmware
