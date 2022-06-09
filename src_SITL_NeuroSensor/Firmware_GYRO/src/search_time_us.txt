@@ -1,0 +1,464 @@
+examples/bottle_drop/bottle_drop.cpp:		const unsigned sleeptime_us = 9500;
+examples/bottle_drop/bottle_drop.cpp:		float dt_runs = sleeptime_us / 1e6f;
+examples/bottle_drop/bottle_drop.cpp:			px4_usleep(sleeptime_us);
+drivers/distance_sensor/ll40ls/LidarLiteI2C.cpp:	_acquire_time_usec = hrt_absolute_time();
+drivers/distance_sensor/ll40ls/LidarLiteI2C.cpp:		if (hrt_absolute_time() - _acquire_time_usec > LL40LS_CONVERSION_TIMEOUT) {
+drivers/distance_sensor/ll40ls/LidarLiteI2C.cpp:		if (hrt_elapsed_time(&_acquire_time_usec) > LL40LS_CONVERSION_TIMEOUT) {
+drivers/distance_sensor/ll40ls/LidarLiteI2C.cpp:			if (hrt_elapsed_time(&_acquire_time_usec) > LL40LS_CONVERSION_TIMEOUT) {
+drivers/distance_sensor/ll40ls/LidarLiteI2C.cpp:			if (hrt_elapsed_time(&_acquire_time_usec) > (LL40LS_CONVERSION_TIMEOUT * 2)) {
+drivers/distance_sensor/ll40ls/LidarLiteI2C.h:	uint64_t	_acquire_time_usec{0};
+drivers/tap_esc/tap_esc.cpp:	hrt_abstime uptime_us = hrt_absolute_time();
+drivers/tap_esc/tap_esc.cpp:	if (uptime_us < MAX_BOOT_TIME_MS * 1000) {
+drivers/tap_esc/tap_esc.cpp:		usleep((MAX_BOOT_TIME_MS * 1000) - uptime_us);
+lib/ecl/EKF/estimator_interface.h:	void setIMUData(uint64_t time_usec, uint64_t delta_ang_dt, uint64_t delta_vel_dt, float (&delta_ang)[3], float (&delta_vel)[3]);
+lib/ecl/EKF/estimator_interface.h:	void setMagData(uint64_t time_usec, float (&data)[3]);
+lib/ecl/EKF/estimator_interface.h:	void setGpsData(uint64_t time_usec, const gps_message &gps);
+lib/ecl/EKF/estimator_interface.h:	void setBaroData(uint64_t time_usec, float data);
+lib/ecl/EKF/estimator_interface.h:	void setAirspeedData(uint64_t time_usec, float true_airspeed, float eas2tas);
+lib/ecl/EKF/estimator_interface.h:	void setRangeData(uint64_t time_usec, float data);
+lib/ecl/EKF/estimator_interface.h:	void setOpticalFlowData(uint64_t time_usec, flow_message *flow);
+lib/ecl/EKF/estimator_interface.h:	void setExtVisionData(uint64_t time_usec, ext_vision_message *evdata);
+lib/ecl/EKF/estimator_interface.h:	void setAuxVelData(uint64_t time_usec, float (&data)[2], float (&variance)[2]);
+lib/ecl/EKF/estimator_interface.h:	void copy_timestamp(uint64_t *time_us)
+lib/ecl/EKF/estimator_interface.h:		*time_us = _time_last_imu;
+lib/ecl/EKF/RingBuffer.h:			if (timestamp >= _buffer[index].time_us && timestamp - _buffer[index].time_us < (uint64_t)1e5) {
+lib/ecl/EKF/RingBuffer.h:				_buffer[index].time_us = 0;
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	uint64_t time_us;
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	x.time_us = 1000000;
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	y.time_us = 2000000;
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	z.time_us = 3000000;
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(buffer.get_newest().time_us == x.time_us);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	//assert(buffer.get_oldest().time_us == 0);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(buffer.get_newest().time_us == z.time_us);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(buffer.get_oldest().time_us == x.time_us);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(buffer.pop_first_older_than(x.time_us + 1, &pop) == true);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(pop.time_us == x.time_us);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(buffer.pop_first_older_than(y.time_us + 100, &pop) == true);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(pop.time_us == y.time_us);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(buffer.pop_first_older_than(z.time_us + 100, &pop) == true);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(pop.time_us == z.time_us);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(buffer.get_newest().time_us == x.time_us);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	//assert(buffer.get_oldest().time_us == 0);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(buffer.get_newest().time_us == z.time_us);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(buffer.pop_first_older_than(x.time_us + 1, &pop) == true);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(pop.time_us == x.time_us);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(buffer.pop_first_older_than(y.time_us + 100, &pop) == true);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(pop.time_us == y.time_us);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(buffer.pop_first_older_than(z.time_us + 100, &pop) == true);
+lib/ecl/EKF/tests/ringbuffer/ringbuffer.cpp:	assert(pop.time_us == z.time_us);
+lib/ecl/EKF/tests/pytest/test_utils.py:                   time_usec,
+lib/ecl/EKF/tests/pytest/test_utils.py:    ekf.set_imu_data(time_usec,
+lib/ecl/EKF/tests/pytest/test_utils.py:    ekf.set_mag_data(time_usec,
+lib/ecl/EKF/tests/pytest/test_utils.py:    ekf.set_baro_data(time_usec,
+lib/ecl/EKF/tests/pytest/test_utils.py:    time_usec = 1000
+lib/ecl/EKF/tests/pytest/test_utils.py:        update_sensors(ekf, time_usec, dt_usec)
+lib/ecl/EKF/tests/pytest/test_utils.py:        time_usec += dt_usec
+lib/ecl/EKF/tests/pytest/test_utils.py:    return ekf, time_usec
+lib/ecl/EKF/tests/pytest/test_basics.py:    time_usec = 1000
+lib/ecl/EKF/tests/pytest/test_basics.py:        update_sensors(ekf, time_usec, dt_usec)
+lib/ecl/EKF/tests/pytest/test_basics.py:        time_usec += dt_usec
+lib/ecl/EKF/tests/pytest/test_altitude.py:    time_usec = 1000
+lib/ecl/EKF/tests/pytest/test_altitude.py:                       time_usec,
+lib/ecl/EKF/tests/pytest/test_altitude.py:        time_usec += dt_usec
+lib/ecl/EKF/tests/pytest/test_altitude.py:    time_usec = 1000
+lib/ecl/EKF/tests/pytest/test_altitude.py:                       time_usec,
+lib/ecl/EKF/tests/pytest/test_altitude.py:        time_usec += dt_usec
+lib/ecl/EKF/tests/pytest/test_altitude.py:        update_sensors(ekf, time_usec, dt_usec, baro_data=altitude)
+lib/ecl/EKF/tests/pytest/test_altitude.py:        time_usec += dt_usec
+lib/ecl/EKF/tests/pytest/test_sampling.py:    time_usec = 100
+lib/ecl/EKF/tests/pytest/test_sampling.py:        time_usec += dt_usec
+lib/ecl/EKF/tests/pytest/test_sampling.py:        ekf.set_imu_data(time_usec,
+lib/ecl/EKF/tests/pytest/test_sampling.py:    time_usec = 0
+lib/ecl/EKF/tests/pytest/test_sampling.py:        time_usec += dt_usec
+lib/ecl/EKF/tests/pytest/test_sampling.py:        ekf.set_imu_data(time_usec,
+lib/ecl/EKF/tests/pytest/test_sampling.py:    assert (time_usec - imu_sample.time_us) >= 0
+lib/ecl/EKF/tests/pytest/test_sampling.py:    assert (time_usec - imu_sample.time_us) / expected_dt_usec < 20
+lib/ecl/EKF/tests/base/base.cpp:	uint32_t time_usec = 1000;
+lib/ecl/EKF/tests/base/base.cpp:		base->setIMUData(time_usec, 2500, 2500, delta_ang, delta_vel);
+lib/ecl/EKF/tests/base/base.cpp:		time_usec += 2500;
+lib/ecl/EKF/tests/base/base.cpp:		base->setIMUData(time_usec, 2500, 2500, delta_ang, delta_vel);
+lib/ecl/EKF/tests/base/base.cpp:		time_usec += 2500;
+lib/ecl/EKF/tests/base/base.cpp:		base->setIMUData(time_usec, 2500, 2500, delta_ang, delta_vel);
+lib/ecl/EKF/tests/base/base.cpp:		time_usec += 30000;
+lib/ecl/EKF/tests/base/base.cpp:		base->setMagData(time_usec, mag);
+lib/ecl/EKF/tests/base/base.cpp:		time_usec += 20000;
+lib/ecl/EKF/tests/base/base.cpp:	time_usec = 100000;
+lib/ecl/EKF/tests/base/base.cpp:		base->setBaroData(time_usec, baro);
+lib/ecl/EKF/tests/base/base.cpp:		time_usec += 20000;
+lib/ecl/EKF/tests/base/base.cpp:		gps.time_usec = timer;
+lib/ecl/EKF/airspeed_fusion.cpp:	if (_tas_data_ready && (_imu_sample_delayed.time_us - _airspeed_sample_delayed.time_us < (uint64_t)5e5)) {
+lib/ecl/EKF/ekf_helper.cpp:		if (_time_last_imu - range_newest.time_us < 2 * RNG_MAX_INTERVAL) {
+lib/ecl/EKF/ekf_helper.cpp:		if (_time_last_imu - baro_newest.time_us < 2 * BARO_MAX_INTERVAL) {
+lib/ecl/EKF/ekf_helper.cpp:		if (_time_last_imu - gps_newest.time_us < 2 * GPS_MAX_INTERVAL) {
+lib/ecl/EKF/ekf_helper.cpp:		int32_t dt_newest = ev_newest.time_us - _imu_sample_delayed.time_us;
+lib/ecl/EKF/ekf_helper.cpp:		int32_t dt_delayed = _ev_sample_delayed.time_us - _imu_sample_delayed.time_us;
+lib/ecl/EKF/ekf_helper.cpp:	if (_control_status.flags.gps && (_time_last_imu - gps_newest.time_us < 2 * GPS_MAX_INTERVAL)) {
+lib/ecl/EKF/ekf_helper.cpp:			_flt_mag_align_start_time = _imu_sample_delayed.time_us;
+lib/ecl/EKF/ekf_helper.cpp:			_flt_mag_align_start_time = _imu_sample_delayed.time_us;
+lib/ecl/EKF/ekf_helper.cpp:	if (_imu_sample_delayed.time_us == _flt_mag_align_start_time) {
+lib/ecl/EKF/ekf_helper.cpp:	_flt_mag_align_start_time = _imu_sample_delayed.time_us;
+lib/ecl/EKF/ekf_helper.cpp:	memcpy(origin_time, &_last_gps_origin_time_us, sizeof(uint64_t));
+lib/ecl/EKF/ekf_helper.cpp:	if (_imu_sample_delayed.time_us - _last_imu_bias_cov_reset_us < (uint64_t)10e6) {
+lib/ecl/EKF/ekf_helper.cpp:	_last_imu_bias_cov_reset_us = _imu_sample_delayed.time_us;
+lib/ecl/EKF/ekf_helper.cpp:		float alpha = math::constrain(omega_lpf_us * (float)(_time_last_imu - _ev_rot_last_time_us), 0.0f, 1.0f);
+lib/ecl/EKF/ekf_helper.cpp:		_ev_rot_last_time_us = _time_last_imu;
+lib/ecl/EKF/ekf.h:	void set_min_required_gps_health_time(uint32_t time_us) { _min_gps_health_time_us = time_us; }
+lib/ecl/EKF/ekf.h:	uint64_t _ev_rot_last_time_us{0};	///< previous time that the calculation of the ekf to ev rotation matrix was updated (uSec)
+lib/ecl/EKF/ekf.h:	uint32_t _min_gps_health_time_us{10000000}; ///< GPS is marked as healthy only after this amount of time
+lib/ecl/EKF/ekf.h:	uint64_t _last_gps_origin_time_us{0};	///< time the origin was last set (uSec)
+lib/ecl/EKF/terrain_estimator.cpp:	if ((_time_last_imu - latest_measurement.time_us) < (uint64_t)2e5 && _R_rng_to_earth_2_2 > _params.range_cos_max_tilt) {
+lib/ecl/EKF/terrain_estimator.cpp:					(_imu_sample_delayed.time_us - _range_sample_delayed.time_us);
+lib/ecl/EKF/common.h:	uint64_t time_usec;
+lib/ecl/EKF/common.h:	uint64_t    time_us;	///< timestamp of the measurement (uSec)
+lib/ecl/EKF/common.h:	uint64_t    time_us;		///< timestamp of the measurement (uSec)
+lib/ecl/EKF/common.h:	uint64_t    time_us;		///< timestamp of the measurement (uSec)
+lib/ecl/EKF/common.h:	uint64_t    time_us;	///< timestamp of the measurement (uSec)
+lib/ecl/EKF/common.h:	uint64_t    time_us;	///< timestamp of the measurement (uSec)
+lib/ecl/EKF/common.h:	uint64_t    time_us{0};	///< timestamp of the measurement (uSec)
+lib/ecl/EKF/common.h:	uint64_t    time_us;	///< timestamp of the measurement (uSec)
+lib/ecl/EKF/common.h:	uint64_t    time_us;		///< timestamp of the measurement (uSec)
+lib/ecl/EKF/common.h:	uint64_t time_us;	///< timestamp of the integration period leading edge (uSec)
+lib/ecl/EKF/common.h:	uint64_t time_us;	///< timestamp of the measurement (uSec)
+lib/ecl/EKF/common.h:	uint64_t time_us;	///< timestamp of the measurement (uSec)
+lib/ecl/EKF/common.h:	uint64_t time_us;	///< timestamp of the measurement (uSec)
+lib/ecl/EKF/gps_checks.cpp:		_last_gps_origin_time_us = _time_last_imu;
+lib/ecl/EKF/gps_checks.cpp:	return _time_last_imu - _last_gps_fail_us > (uint64_t)_min_gps_health_time_us;
+lib/ecl/EKF/covariance.cpp:	_last_imu_bias_cov_reset_us = _imu_sample_delayed.time_us;
+lib/ecl/EKF/covariance.cpp:	if (_tas_data_ready && (_imu_sample_delayed.time_us - _airspeed_sample_delayed.time_us < (uint64_t)5e5)) {
+lib/ecl/EKF/estimator_interface.cpp:		init(imu_sample.time_us);
+lib/ecl/EKF/estimator_interface.cpp:	const float dt = math::constrain((imu_sample.time_us - _time_last_imu) / 1e6f, 1.0e-4f, 0.02f);
+lib/ecl/EKF/estimator_interface.cpp:	_time_last_imu = imu_sample.time_us;
+lib/ecl/EKF/estimator_interface.cpp:			_time_last_move_detect_us = imu_sample.time_us;
+lib/ecl/EKF/estimator_interface.cpp:		_vehicle_at_rest = ((imu_sample.time_us - _time_last_move_detect_us) > (uint64_t)1E6);
+lib/ecl/EKF/estimator_interface.cpp:		_time_last_move_detect_us = imu_sample.time_us;
+lib/ecl/EKF/estimator_interface.cpp:			_drag_down_sampled.time_us += imu_sample.time_us;
+lib/ecl/EKF/estimator_interface.cpp:				_drag_down_sampled.time_us /= _drag_sample_count;
+lib/ecl/EKF/estimator_interface.cpp:				_drag_down_sampled.time_us = 0;
+lib/ecl/EKF/estimator_interface.cpp:void EstimatorInterface::setIMUData(uint64_t time_usec, uint64_t delta_ang_dt, uint64_t delta_vel_dt,
+lib/ecl/EKF/estimator_interface.cpp:	imu_sample_new.time_us = time_usec;
+lib/ecl/EKF/estimator_interface.cpp:void EstimatorInterface::setMagData(uint64_t time_usec, float (&data)[3])
+lib/ecl/EKF/estimator_interface.cpp:	if ((time_usec - _time_last_mag) > _min_obs_interval_us) {
+lib/ecl/EKF/estimator_interface.cpp:		mag_sample_new.time_us = time_usec - _params.mag_delay_ms * 1000;
+lib/ecl/EKF/estimator_interface.cpp:		mag_sample_new.time_us -= FILTER_UPDATE_PERIOD_MS * 1000 / 2;
+lib/ecl/EKF/estimator_interface.cpp:		_time_last_mag = time_usec;
+lib/ecl/EKF/estimator_interface.cpp:void EstimatorInterface::setGpsData(uint64_t time_usec, const gps_message &gps)
+lib/ecl/EKF/estimator_interface.cpp:	if (((time_usec - _time_last_gps) > _min_obs_interval_us) && need_gps && gps.fix_type > 2) {
+lib/ecl/EKF/estimator_interface.cpp:		gps_sample_new.time_us = gps.time_usec - _params.gps_delay_ms * 1000;
+lib/ecl/EKF/estimator_interface.cpp:		gps_sample_new.time_us -= FILTER_UPDATE_PERIOD_MS * 1000 / 2;
+lib/ecl/EKF/estimator_interface.cpp:		_time_last_gps = time_usec;
+lib/ecl/EKF/estimator_interface.cpp:		gps_sample_new.time_us = math::max(gps_sample_new.time_us, _imu_sample_delayed.time_us);
+lib/ecl/EKF/estimator_interface.cpp:void EstimatorInterface::setBaroData(uint64_t time_usec, float data)
+lib/ecl/EKF/estimator_interface.cpp:	if ((time_usec - _time_last_baro) > _min_obs_interval_us) {
+lib/ecl/EKF/estimator_interface.cpp:		baro_sample_new.time_us = time_usec - _params.baro_delay_ms * 1000;
+lib/ecl/EKF/estimator_interface.cpp:		baro_sample_new.time_us -= FILTER_UPDATE_PERIOD_MS * 1000 / 2;
+lib/ecl/EKF/estimator_interface.cpp:		_time_last_baro = time_usec;
+lib/ecl/EKF/estimator_interface.cpp:		baro_sample_new.time_us = math::max(baro_sample_new.time_us, _imu_sample_delayed.time_us);
+lib/ecl/EKF/estimator_interface.cpp:void EstimatorInterface::setAirspeedData(uint64_t time_usec, float true_airspeed, float eas2tas)
+lib/ecl/EKF/estimator_interface.cpp:	if ((time_usec - _time_last_airspeed) > _min_obs_interval_us) {
+lib/ecl/EKF/estimator_interface.cpp:		airspeed_sample_new.time_us = time_usec - _params.airspeed_delay_ms * 1000;
+lib/ecl/EKF/estimator_interface.cpp:		airspeed_sample_new.time_us -= FILTER_UPDATE_PERIOD_MS * 1000 / 2;
+lib/ecl/EKF/estimator_interface.cpp:		_time_last_airspeed = time_usec;
+lib/ecl/EKF/estimator_interface.cpp:void EstimatorInterface::setRangeData(uint64_t time_usec, float data)
+lib/ecl/EKF/estimator_interface.cpp:	if ((time_usec - _time_last_range) > _min_obs_interval_us) {
+lib/ecl/EKF/estimator_interface.cpp:		range_sample_new.time_us = time_usec - _params.range_delay_ms * 1000;
+lib/ecl/EKF/estimator_interface.cpp:		_time_last_range = time_usec;
+lib/ecl/EKF/estimator_interface.cpp:void EstimatorInterface::setOpticalFlowData(uint64_t time_usec, flow_message *flow)
+lib/ecl/EKF/estimator_interface.cpp:	if ((time_usec - _time_last_optflow) > _min_obs_interval_us) {
+lib/ecl/EKF/estimator_interface.cpp:			optflow_sample_new.time_us = time_usec - _params.flow_delay_ms * 1000;
+lib/ecl/EKF/estimator_interface.cpp:			_time_last_optflow = time_usec;
+lib/ecl/EKF/estimator_interface.cpp:void EstimatorInterface::setExtVisionData(uint64_t time_usec, ext_vision_message *evdata)
+lib/ecl/EKF/estimator_interface.cpp:	if ((time_usec - _time_last_ext_vision) > _min_obs_interval_us) {
+lib/ecl/EKF/estimator_interface.cpp:		ev_sample_new.time_us = time_usec - _params.ev_delay_ms * 1000;
+lib/ecl/EKF/estimator_interface.cpp:		_time_last_ext_vision = time_usec;
+lib/ecl/EKF/estimator_interface.cpp:void EstimatorInterface::setAuxVelData(uint64_t time_usec, float (&data)[2], float (&variance)[2])
+lib/ecl/EKF/estimator_interface.cpp:	if ((time_usec - _time_last_auxvel) > _min_obs_interval_us) {
+lib/ecl/EKF/estimator_interface.cpp:		auxvel_sample_new.time_us = time_usec - _params.auxvel_delay_ms * 1000;
+lib/ecl/EKF/estimator_interface.cpp:		auxvel_sample_new.time_us -= FILTER_UPDATE_PERIOD_MS * 1000 / 2;
+lib/ecl/EKF/estimator_interface.cpp:		_time_last_auxvel = time_usec;
+lib/ecl/EKF/estimator_interface.cpp:	_imu_sample_delayed.time_us = timestamp;
+lib/ecl/EKF/matlab/EKF_replay/Filter/InitStates.m:    imu_start_index = (find(imu_data.time_us > gps_data.time_us(gps_data.start_index), 1, 'first' ) - 50);
+lib/ecl/EKF/matlab/EKF_replay/Filter/InitStates.m:mag_start_index = (find(mag_data.time_us > imu_data.time_us(imu_start_index), 1, 'first' ) - 5);
+lib/ecl/EKF/matlab/EKF_replay/Filter/InitStates.m:baro_start_index = (find(baro_data.time_us > imu_data.time_us(imu_start_index), 1, 'first' ) - 10);
+lib/ecl/EKF/matlab/EKF_replay/Filter/RunFilter.m:indexStop = length(imu_data.time_us) - imu_start_index;
+lib/ecl/EKF/matlab/EKF_replay/Filter/RunFilter.m:    local_time=imu_data.time_us(imuIndex)*1e-6;
+lib/ecl/EKF/matlab/EKF_replay/Filter/RunFilter.m:        latest_gps_index = find((gps_data.time_us - 1e6 * param.fusion.gpsTimeDelay) < imu_data.time_us(imuIndex), 1, 'last' );
+lib/ecl/EKF/matlab/EKF_replay/Filter/RunFilter.m:        latest_baro_index = find((baro_data.time_us - 1e6 * param.fusion.baroTimeDelay) < imu_data.time_us(imuIndex), 1, 'last' );
+lib/ecl/EKF/matlab/EKF_replay/Filter/RunFilter.m:        latest_mag_index = find((mag_data.time_us - 1e6 * param.fusion.magTimeDelay) < imu_data.time_us(imuIndex), 1, 'last' );
+lib/ecl/EKF/matlab/EKF_replay/Filter/RunFilter.m:            last_range_index = find((rng_data.time_us - 1e6 * param.fusion.rangeTimeDelay) < imu_data.time_us(imuIndex), 1, 'last' );
+lib/ecl/EKF/matlab/EKF_replay/Filter/RunFilter.m:            latest_flow_index = find((flow_data.time_us - 1e6 * param.fusion.flowTimeDelay) < imu_data.time_us(imuIndex), 1, 'last' );
+lib/ecl/EKF/matlab/EKF_replay/Filter/RunFilter.m:            latest_viso_index = find((viso_data.time_us - 1e6 * param.fusion.bodyVelTimeDelay) < imu_data.time_us(imuIndex), 1, 'last' );
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_px4_optical_flow_csv_data.m:        flow_data.time_us(output_index,1) = flow_timestamp;
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_apm_data.m:        baro_data.time_us(output_index,1) = BARO(source_index,2);
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_apm_data.m:imu_data.time_us = IMT(:,2);
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_apm_data.m:        mag_data.time_us(output_index,1) = mag_timestamp;
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_apm_data.m:gps_data.time_us = GPS(1:maxindex,2);
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_apm_data.m:    rng_data.time_us = RFND(:,2);
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_apm_data.m:    flow_data.time_us = OF(:,2);
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_apm_data.m:    viso_data.time_us = VISO(:,2);
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_px4_distance_sensor_csv_data.m:        rng_data.time_us(output_index,1) = rng_timestamp;
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_px4_vehicle_gps_position_csv.m:gps_data.time_us = timestamp + timestamp_time_relative;
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_px4_sensor_combined_csv_data.m:        baro_data.time_us(output_index,1) = baro_timestamp;
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_px4_sensor_combined_csv_data.m:imu_data.time_us = timestamp + accelerometer_timestamp_relative;
+lib/ecl/EKF/matlab/EKF_replay/Common/convert_px4_sensor_combined_csv_data.m:        mag_data.time_us(output_index,1) = mag_timestamp;
+lib/ecl/EKF/control.cpp:	_baro_hgt_faulty = !((_time_last_imu - baro_init.time_us) < 2 * BARO_MAX_INTERVAL);
+lib/ecl/EKF/control.cpp:	_gps_hgt_intermittent = !((_time_last_imu - gps_init.time_us) < 2 * GPS_MAX_INTERVAL);
+lib/ecl/EKF/control.cpp:	_gps_data_ready = _gps_buffer.pop_first_older_than(_imu_sample_delayed.time_us, &_gps_sample_delayed);
+lib/ecl/EKF/control.cpp:	_mag_data_ready = _mag_buffer.pop_first_older_than(_imu_sample_delayed.time_us, &_mag_sample_delayed);
+lib/ecl/EKF/control.cpp:	_delta_time_baro_us = _baro_sample_delayed.time_us;
+lib/ecl/EKF/control.cpp:	_baro_data_ready = _baro_buffer.pop_first_older_than(_imu_sample_delayed.time_us, &_baro_sample_delayed);
+lib/ecl/EKF/control.cpp:		_delta_time_baro_us = _baro_sample_delayed.time_us - _delta_time_baro_us;
+lib/ecl/EKF/control.cpp:	_range_data_ready = _range_buffer.pop_first_older_than(_imu_sample_delayed.time_us, &_range_sample_delayed);
+lib/ecl/EKF/control.cpp:		_flow_data_ready = _flow_buffer.pop_first_older_than(_imu_sample_delayed.time_us, &_flow_sample_delayed)
+lib/ecl/EKF/control.cpp:	_ev_data_ready = _ext_vision_buffer.pop_first_older_than(_imu_sample_delayed.time_us, &_ev_sample_delayed);
+lib/ecl/EKF/control.cpp:	_tas_data_ready = _airspeed_buffer.pop_first_older_than(_imu_sample_delayed.time_us, &_airspeed_sample_delayed);
+lib/ecl/EKF/control.cpp:			_time_bad_motion_us = _imu_sample_delayed.time_us;
+lib/ecl/EKF/control.cpp:			_time_good_motion_us = _imu_sample_delayed.time_us;
+lib/ecl/EKF/control.cpp:		_time_good_motion_us = _imu_sample_delayed.time_us;
+lib/ecl/EKF/control.cpp:			bool preflight_motion_not_ok = !_control_status.flags.in_air && ((_imu_sample_delayed.time_us - _time_good_motion_us) > (uint64_t)1E5);
+lib/ecl/EKF/control.cpp:			bool preflight_motion_ok = !_control_status.flags.in_air && ((_imu_sample_delayed.time_us - _time_bad_motion_us) > (uint64_t)5E6);
+lib/ecl/EKF/control.cpp:	if (_flow_data_ready && (_imu_sample_delayed.time_us > _flow_sample_delayed.time_us - uint32_t(1e6f * _flow_sample_delayed.dt) / 2)) {
+lib/ecl/EKF/control.cpp:	} else if (_control_status.flags.gps && (_imu_sample_delayed.time_us - _gps_sample_delayed.time_us > (uint64_t)10e6)) {
+lib/ecl/EKF/control.cpp:	}  else if (_control_status.flags.gps && (_imu_sample_delayed.time_us - _gps_sample_delayed.time_us > (uint64_t)1e6) && (_control_status.flags.opt_flow || _control_status.flags.ev_pos)) {
+lib/ecl/EKF/control.cpp:			((_imu_sample_delayed.time_us - _baro_sample_delayed.time_us) < 2 * BARO_MAX_INTERVAL) && // vertical position data is fresh
+lib/ecl/EKF/control.cpp:			((_imu_sample_delayed.time_us - _gps_sample_delayed.time_us) < 2 * GPS_MAX_INTERVAL)); // vertical velocity data is fresh
+lib/ecl/EKF/control.cpp:			bool baro_hgt_available = ((_time_last_imu - baro_init.time_us) < 2 * BARO_MAX_INTERVAL);
+lib/ecl/EKF/control.cpp:			bool baro_data_fresh = ((_time_last_imu - baro_init.time_us) < 2 * BARO_MAX_INTERVAL);
+lib/ecl/EKF/control.cpp:			bool rng_data_available = ((_time_last_imu - rng_init.time_us) < 2 * RNG_MAX_INTERVAL);
+lib/ecl/EKF/control.cpp:			bool baro_data_available = ((_time_last_imu - baro_init.time_us) < 2 * BARO_MAX_INTERVAL);
+lib/ecl/EKF/control.cpp:			bool ev_data_available = ((_time_last_imu - ev_init.time_us) < 2 * EV_MAX_INTERVAL);
+lib/ecl/EKF/control.cpp:			bool baro_data_available = ((_time_last_imu - baro_init.time_us) < 2 * BARO_MAX_INTERVAL);
+lib/ecl/EKF/control.cpp:			_range_sample_delayed.time_us = _imu_sample_delayed.time_us;
+lib/ecl/EKF/control.cpp:	if ((_imu_sample_delayed.time_us - _range_sample_delayed .time_us) > 2 * RNG_MAX_INTERVAL) {
+lib/ecl/EKF/control.cpp:	if (((_range_sample_delayed.time_us - _time_last_rng_ready) > (uint64_t)10e6) &&
+lib/ecl/EKF/control.cpp:			_time_last_rng_ready = _range_sample_delayed.time_us;
+lib/ecl/EKF/control.cpp:		_time_last_rng_ready = _range_sample_delayed.time_us;
+lib/ecl/EKF/control.cpp:			} else if (_drag_buffer.pop_first_older_than(_imu_sample_delayed.time_us, &_drag_sample_delayed)) {
+lib/ecl/EKF/control.cpp:				_time_yaw_started = _imu_sample_delayed.time_us;
+lib/ecl/EKF/control.cpp:					_time_yaw_started = _imu_sample_delayed.time_us;
+lib/ecl/EKF/control.cpp:				float min_yaw_change_req =  0.5f * _params.mag_yaw_rate_gate * (1e-6f * (float)(_imu_sample_delayed.time_us - _time_yaw_started));
+lib/ecl/EKF/control.cpp:				_time_last_movement = _imu_sample_delayed.time_us;
+lib/ecl/EKF/control.cpp:					((_imu_sample_delayed.time_us - _time_last_movement) < 2 * 1000 * 1000); // Using 3-axis fusion for a minimum period after to allow for false negatives
+lib/ecl/EKF/control.cpp:			_flt_mag_align_converging = ((_imu_sample_delayed.time_us - _flt_mag_align_start_time) < (uint64_t)5e6);
+lib/ecl/EKF/control.cpp:			_mag_use_not_inhibit_us = _imu_sample_delayed.time_us;
+lib/ecl/EKF/control.cpp:		if (uint32_t(_imu_sample_delayed.time_us - _mag_use_not_inhibit_us) > (uint32_t)5e6) {
+lib/ecl/EKF/control.cpp:	bool data_ready = _auxvel_buffer.pop_first_older_than(_imu_sample_delayed.time_us, &_auxvel_sample_delayed);
+lib/ecl/EKF/swig/ecl_EKF.i:        uint64_t time_us;	// timestamp in microseconds
+lib/ecl/EKF/swig/ecl_EKF.i:            ss << " time_us: " << time_us << "]\n";
+lib/ecl/EKF/swig/ecl_EKF.i:    void set_imu_data(uint64_t time_usec, uint64_t delta_ang_dt, uint64_t delta_vel_dt,  float delta_ang[3], float delta_vel[3]) {
+lib/ecl/EKF/swig/ecl_EKF.i:        self->setIMUData(time_usec, delta_ang_dt, delta_vel_dt,  last_imu_delta_ang, last_imu_delta_vel);
+lib/ecl/EKF/swig/ecl_EKF.i:    void set_mag_data(uint64_t time_usec, float mag_data[3]) {
+lib/ecl/EKF/swig/ecl_EKF.i:        self->setMagData(time_usec, last_mag_data);
+lib/ecl/EKF/swig/ecl_EKF.i:    void set_baro_data(uint64_t time_usec, float baro_data) {
+lib/ecl/EKF/swig/ecl_EKF.i:        self->setBaroData(time_usec, baro_data);
+lib/ecl/EKF/swig/ecl_EKF.i:       result.time_us = result_sample.time_us;
+lib/ecl/EKF/ekf.cpp:	_imu_down_sampled.time_us = timestamp;
+lib/ecl/EKF/ekf.cpp:	if (_mag_buffer.pop_first_older_than(_imu_sample_delayed.time_us, &_mag_sample_delayed)) {
+lib/ecl/EKF/ekf.cpp:		if ((_mag_counter == 0) && (_mag_sample_delayed.time_us != 0)) {
+lib/ecl/EKF/ekf.cpp:		} else if ((_mag_counter != 0) && (_mag_sample_delayed.time_us != 0)) {
+lib/ecl/EKF/ekf.cpp:	if (_ext_vision_buffer.pop_first_older_than(_imu_sample_delayed.time_us, &_ev_sample_delayed)) {
+lib/ecl/EKF/ekf.cpp:		if ((_ev_counter == 0) && (_ev_sample_delayed.time_us != 0)) {
+lib/ecl/EKF/ekf.cpp:		} else if ((_ev_counter != 0) && (_ev_sample_delayed.time_us != 0)) {
+lib/ecl/EKF/ekf.cpp:	if (_baro_buffer.pop_first_older_than(_imu_sample_delayed.time_us, &_baro_sample_delayed)) {
+lib/ecl/EKF/ekf.cpp:		if ((_hgt_counter == 0) && (_baro_sample_delayed.time_us != 0)) {
+lib/ecl/EKF/ekf.cpp:		} else if ((_hgt_counter != 0) && (_baro_sample_delayed.time_us != 0)) {
+lib/ecl/EKF/ekf.cpp:		imu_sample_new.time_us = imu.time_us;
+lib/ecl/EKF/ekf.cpp:		_min_obs_interval_us = (imu_sample_new.time_us - _imu_sample_delayed.time_us) / (_obs_buffer_length - 1);
+lib/ecl/EKF/ekf.cpp:	_output_new.time_us = imu.time_us;
+lib/ecl/EKF/ekf.cpp:		const float time_delay = fmaxf((imu.time_us - _imu_sample_delayed.time_us) * 1e-6f, _dt_imu_avg);
+lib/DriverFramework/framework/src/Time.cpp:int DriverFramework::absoluteTimeInFuture(uint64_t time_us, struct timespec &ts)
+lib/DriverFramework/framework/src/Time.cpp:		uint64_t nsecs = ts.tv_nsec + time_us * 1000;
+lib/DriverFramework/framework/include/MagSensor.hpp:	uint64_t last_read_time_usec; 	/*! time stamp indicating the time at which the pressure in this data structure was read */
+lib/DriverFramework/framework/include/DriverFramework.hpp:int absoluteTimeInFuture(uint64_t time_us, struct timespec &ts);
+lib/DriverFramework/framework/include/BaroSensor.hpp:	uint64_t last_read_time_usec; 	/*! time stamp indicating the time at which the pressure in this data structure was read */
+lib/DriverFramework/drivers/hmc5883/HMC5883.cpp:	m_sensor_data.last_read_time_usec = 0;
+lib/DriverFramework/drivers/hmc5883/HMC5883.cpp:			m_sensor_data.last_read_time_usec = DriverFramework::offsetTime();
+lib/DriverFramework/drivers/bmp280/BMP280.cpp:	m_sensor_data.last_read_time_usec = 0;
+lib/DriverFramework/drivers/bmp280/BMP280.cpp:	m_sensor_data.last_read_time_usec = DriverFramework::offsetTime();
+lib/DriverFramework/drivers/bmp280/BMP280.cpp:	m_sensor_data.last_read_time_usec 	= DriverFramework::offsetTime();
+lib/DriverFramework/drivers/ms5611/MS5611.cpp:	m_sensor_data.last_read_time_usec = 0;
+lib/DriverFramework/drivers/ms5611/MS5611.cpp:		m_sensor_data.last_read_time_usec = DriverFramework::offsetTime();
+lib/DriverFramework/drivers/ak8963/AK8963.cpp:	m_sensor_data.last_read_time_usec = 0;
+lib/DriverFramework/drivers/ak8963/AK8963.cpp:		m_sensor_data.last_read_time_usec = DriverFramework::offsetTime();
+lib/systemlib/print_load_nuttx.c:	uint64_t curr_time_us;
+lib/systemlib/print_load_nuttx.c:	uint64_t idle_time_us;
+lib/systemlib/print_load_nuttx.c:	curr_time_us = t;
+lib/systemlib/print_load_nuttx.c:	idle_time_us = system_load.tasks[0].total_runtime;
+lib/systemlib/print_load_nuttx.c:		 (double)curr_time_us / 1000000.d,
+lib/systemlib/print_load_nuttx.c:		 (double)idle_time_us / 1000000.d);
+lib/hysteresis/hysteresis.h:	void set_hysteresis_time_from(const bool from_state, const hrt_abstime new_hysteresis_time_us);
+lib/hysteresis/HysteresisTest.cpp:	hrt_abstime time_us = SOME_START_TIME;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(true, time_us);
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(false, time_us);
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(true, time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 1000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	hrt_abstime time_us = SOME_START_TIME;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(true, time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 4000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 2000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(false, time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 1000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 3000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	hrt_abstime time_us = SOME_START_TIME;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(true, time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 3000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 3000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(false, time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 7000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 5000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	hrt_abstime time_us = SOME_START_TIME;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(true, time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 3000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(true, time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 3000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(true, time_us);
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(false, time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 3000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(false, time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 3000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(false, time_us);
+lib/hysteresis/HysteresisTest.cpp:	hrt_abstime time_us = SOME_START_TIME;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(true, time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 3000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(false, time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 6000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(true, time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 3000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	time_us += 3000;
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.update(time_us);
+lib/hysteresis/HysteresisTest.cpp:	hysteresis.set_state_and_update(false, time_us);
+lib/hysteresis/hysteresis.cpp:Hysteresis::set_hysteresis_time_from(const bool from_state, const hrt_abstime new_hysteresis_time_us)
+lib/hysteresis/hysteresis.cpp:		_time_from_true_us = new_hysteresis_time_us;
+lib/hysteresis/hysteresis.cpp:		_time_from_false_us = new_hysteresis_time_us;
+modules/ekf2/ekf2_main.cpp:	uint64_t _integrated_time_us = 0;	///< integral of gyro delta time from start (uSec)
+modules/ekf2/ekf2_main.cpp:	uint64_t _start_time_us = 0;		///< system time at EKF start (uSec)
+modules/ekf2/ekf2_main.cpp:	hrt_abstime _total_cal_time_us = 0;	///< accumulated calibration time since the last save
+modules/ekf2/ekf2_main.cpp:	uint64_t _time_prev_us[GPS_MAX_RECEIVERS] = {};	///< the previous value of time_us for that GPS instance - used to detect new data.
+modules/ekf2/ekf2_main.cpp:		imu_sample_new.time_us = now;
+modules/ekf2/ekf2_main.cpp:				_gps_state[0].time_usec = gps.timestamp;
+modules/ekf2/ekf2_main.cpp:				_gps_state[1].time_usec = gps.timestamp;
+modules/ekf2/ekf2_main.cpp:			_ekf.setGpsData(_gps_state[0].time_usec, _gps_state[0]);
+modules/ekf2/ekf2_main.cpp:				_ekf.setGpsData(_gps_output[_gps_select_index].time_usec, _gps_output[_gps_select_index]);
+modules/ekf2/ekf2_main.cpp:				gps.timestamp = _gps_output[_gps_select_index].time_usec;
+modules/ekf2/ekf2_main.cpp:		if (_start_time_us == 0) {
+modules/ekf2/ekf2_main.cpp:			_start_time_us = now;
+modules/ekf2/ekf2_main.cpp:		} else if (_start_time_us > 0) {
+modules/ekf2/ekf2_main.cpp:			_integrated_time_us += sensors.gyro_integral_dt;
+modules/ekf2/ekf2_main.cpp:			_last_time_slip_us = (now - _start_time_us) - _integrated_time_us;
+modules/ekf2/ekf2_main.cpp:						_total_cal_time_us += now - _last_magcal_us;
+modules/ekf2/ekf2_main.cpp:					_total_cal_time_us = 0;
+modules/ekf2/ekf2_main.cpp:				if (_total_cal_time_us > 120_s) {
+modules/ekf2/ekf2_main.cpp:					_total_cal_time_us = 0;
+modules/ekf2/ekf2_main.cpp:		float raw_dt = 0.001f * (float)(_gps_state[i].time_usec - _time_prev_us[i]);
+modules/ekf2/ekf2_main.cpp:		if (_gps_state[i].time_usec > max_us) {
+modules/ekf2/ekf2_main.cpp:			max_us = _gps_state[i].time_usec;
+modules/ekf2/ekf2_main.cpp:		if ((_gps_state[i].time_usec < min_us) && (_gps_state[i].time_usec > 0)) {
+modules/ekf2/ekf2_main.cpp:			min_us = _gps_state[i].time_usec;
+modules/ekf2/ekf2_main.cpp:		if (_gps_state[_gps_time_ref_index].time_usec > _time_prev_us[_gps_time_ref_index]) {
+modules/ekf2/ekf2_main.cpp:		_gps_blended_state.time_usec = _gps_state[_gps_time_ref_index].time_usec;
+modules/ekf2/ekf2_main.cpp:	_gps_blended_state.time_usec = 0;
+modules/ekf2/ekf2_main.cpp:		_gps_blended_state.time_usec += (uint64_t)((double)_gps_state[i].time_usec * (double)_blend_weights[i]);
+modules/ekf2/ekf2_main.cpp:		if (_gps_state[i].time_usec - _time_prev_us[i] > 0) {
+modules/ekf2/ekf2_main.cpp:			float min_alpha = constrain(omega_lpf * 1e-6f * (float)(_gps_state[i].time_usec - _time_prev_us[i]),
+modules/ekf2/ekf2_main.cpp:			_time_prev_us[i] = _gps_state[i].time_usec;
+modules/ekf2/ekf2_main.cpp:		_gps_output[i].time_usec	= _gps_state[i].time_usec;
+modules/ekf2/ekf2_main.cpp:	_gps_output[GPS_BLENDED_INSTANCE].time_usec	= _gps_blended_state.time_usec;
+modules/ekf2/ekf2_main.cpp:		_gps_alttitude_ellipsoid_previous_timestamp[0] = _gps_state[0].time_usec;
+modules/ekf2/ekf2_main.cpp:	} else if (_gps_state[0].time_usec != _gps_alttitude_ellipsoid_previous_timestamp[0]) {
+modules/ekf2/ekf2_main.cpp:		float dt = 1e-6f * static_cast<float>(_gps_state[0].time_usec - _gps_alttitude_ellipsoid_previous_timestamp[0]);
+modules/ekf2/ekf2_main.cpp:		_gps_alttitude_ellipsoid_previous_timestamp[0] = _gps_state[0].time_usec;
+modules/ekf2/tags:_integrated_time_us	ekf2_main.cpp	/^	uint64_t _integrated_time_us = 0;	\/\/\/< integral of gyro delta time from start (uSec)$/;"	m	class:final	file:
+modules/ekf2/tags:_start_time_us	ekf2_main.cpp	/^	uint64_t _start_time_us = 0;		\/\/\/< system time at EKF start (uSec)$/;"	m	class:final	file:
+modules/ekf2/tags:_time_prev_us	ekf2_main.cpp	/^	uint64_t _time_prev_us[GPS_MAX_RECEIVERS] = {};	\/\/\/< the previous value of time_us for that GPS instance - used to detect new data.$/;"	m	class:final	file:
+modules/ekf2/tags:_total_cal_time_us	ekf2_main.cpp	/^	hrt_abstime _total_cal_time_us = 0;	\/\/\/< accumulated calibration time since the last save$/;"	m	class:final	file:
+modules/mavlink/mavlink_receiver.cpp:	f.integration_timespan  = flow.integration_time_us;
+modules/mavlink/mavlink_receiver.cpp:	f.timestamp = hrt_absolute_time(); // XXX we rely on the system time for now and not flow.time_usec;
+modules/mavlink/mavlink_receiver.cpp:	f.integration_timespan = flow.integration_time_us;
+modules/mavlink/mavlink_receiver.cpp:	mocap_odom.timestamp = _mavlink_timesync.sync_stamp(mocap.time_usec);
+modules/mavlink/mavlink_receiver.cpp:	odometry.timestamp = _mavlink_timesync.sync_stamp(odom.time_usec);
+modules/mavlink/mavlink_receiver.cpp:		float rtt_ms = (now - ping.time_usec) / 1000.0f;
+modules/mavlink/mavlink_receiver.cpp:			uorb_ping_msg.ping_time = ping.time_usec;
+modules/mavlink/mavlink_receiver.cpp:	hil_gps.time_utc_usec = gps.time_usec;
+modules/mavlink/mavlink_receiver.cpp:		landing_target_pose.timestamp = _mavlink_timesync.sync_stamp(landing_target.time_usec);
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = sensor.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = gps.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = gps.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = trigger.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = odom.timestamp;
+modules/mavlink/mavlink_messages.cpp:			est_msg.time_usec = est.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = est.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = mocap.timestamp;
+modules/mavlink/mavlink_messages.cpp:					msg.time_usec = home.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = act.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = att_ctrl.timestamp;
+modules/mavlink/mavlink_messages.cpp:				msg.time_usec = hrt_absolute_time();
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = traj_wp_avoidance_desired.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = flow.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.integration_time_us = flow.integration_timespan;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = debug.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = debug.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = hrt_absolute_time();
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = wind_estimate.timestamp;
+modules/mavlink/mavlink_messages.cpp:		msg.time_usec = hrt_absolute_time();
+modules/mavlink/mavlink_messages.cpp:			_msg_orbit_execution_status.time_usec = _orbit_status.timestamp;
+modules/mavlink/mavlink_messages.cpp:			msg.time_usec = obstacke_distance.timestamp;
+modules/muorb/adsp/px4muorb.hpp:	int px4muorb_get_absolute_time(uint64_t *time_us) __EXPORT;
+modules/muorb/adsp/px4muorb.cpp:int px4muorb_get_absolute_time(uint64_t *time_us)
+modules/muorb/adsp/px4muorb.cpp:	*time_us = hrt_absolute_time();
+modules/simulator/simulator_mavlink.cpp:	msg.time_usec = hrt_absolute_time() + hrt_absolute_time_offset();
+modules/simulator/simulator_mavlink.cpp:			PX4_DEBUG("sending controls t=%ld (%ld)", actuators.timestamp, hil_act_control.time_usec);
+modules/simulator/simulator_mavlink.cpp:	abstime_to_ts(&ts, imu.time_usec);
+modules/simulator/simulator_mavlink.cpp:		PX4_INFO("HIL_SENSOR: imu time_usec: %lu, time_usec: %lu, diff: %lu, step: %.2f", imu.time_usec, now_us, diff, step);
+modules/simulator/simulator_mavlink.cpp:	flow.integration_timespan = flow_mavlink->integration_time_us;
+modules/commander/Commander.hpp:	hrt_abstime	_last_gpos_fail_time_us{0};	/**< Last time that the global position validity recovery check failed (usec) */
+modules/commander/Commander.hpp:	hrt_abstime	_last_lpos_fail_time_us{0};	/**< Last time that the local position validity recovery check failed (usec) */
+modules/commander/Commander.hpp:	hrt_abstime	_last_lvel_fail_time_us{0};	/**< Last time that the local velocity validity recovery check failed (usec) */
+modules/commander/Commander.hpp:	hrt_abstime	_gpos_probation_time_us = POSVEL_PROBATION_MIN;
+modules/commander/Commander.hpp:	hrt_abstime	_lpos_probation_time_us = POSVEL_PROBATION_MIN;
+modules/commander/Commander.hpp:	hrt_abstime	_lvel_probation_time_us = POSVEL_PROBATION_MIN;
+modules/commander/Commander.hpp:				   const hrt_abstime &data_timestamp_us, hrt_abstime *last_fail_time_us, hrt_abstime *probation_time_us, bool *valid_state,
+modules/commander/Commander.cpp:	_last_lpos_fail_time_us = commander_boot_timestamp;
+modules/commander/Commander.cpp:	_last_gpos_fail_time_us = commander_boot_timestamp;
+modules/commander/Commander.cpp:	_last_lvel_fail_time_us = commander_boot_timestamp;
+modules/commander/Commander.cpp:						_gpos_probation_time_us = _param_com_pos_fs_prob.get() * 1_s;
+modules/commander/Commander.cpp:						_lpos_probation_time_us = _param_com_pos_fs_prob.get() * 1_s;
+modules/commander/Commander.cpp:						_lvel_probation_time_us = _param_com_pos_fs_prob.get() * 1_s;
+modules/commander/Commander.cpp:	_gpos_probation_time_us = POSVEL_PROBATION_MIN;
+modules/commander/Commander.cpp:	_lpos_probation_time_us = POSVEL_PROBATION_MIN;
+modules/commander/Commander.cpp:	_lvel_probation_time_us = POSVEL_PROBATION_MIN;
+modules/commander/Commander.cpp:				      &_last_gpos_fail_time_us, &_gpos_probation_time_us, &status_flags.condition_global_position_valid, changed);
+modules/commander/Commander.cpp:			      &_last_lpos_fail_time_us, &_lpos_probation_time_us, &status_flags.condition_local_position_valid, changed);
+modules/commander/Commander.cpp:			      &_last_lvel_fail_time_us, &_lvel_probation_time_us, &status_flags.condition_local_velocity_valid, changed);
+modules/commander/Commander.cpp:				 const hrt_abstime &data_timestamp_us, hrt_abstime *last_fail_time_us, hrt_abstime *probation_time_us, bool *valid_state,
+modules/commander/Commander.cpp:		*probation_time_us = POSVEL_PROBATION_MIN;
+modules/commander/Commander.cpp:			const int64_t probation_time_new = *probation_time_us - hrt_elapsed_time(last_fail_time_us);
+modules/commander/Commander.cpp:			*probation_time_us = math::constrain(probation_time_new, POSVEL_PROBATION_MIN, POSVEL_PROBATION_MAX);
+modules/commander/Commander.cpp:			if (hrt_elapsed_time(last_fail_time_us) > *probation_time_us) {
+modules/commander/Commander.cpp:			const int64_t probation_time_new = *probation_time_us + hrt_elapsed_time(last_fail_time_us) *
+modules/commander/Commander.cpp:			*probation_time_us = math::constrain(probation_time_new, POSVEL_PROBATION_MIN, POSVEL_PROBATION_MAX);
+modules/commander/Commander.cpp:		*last_fail_time_us = hrt_absolute_time();
+modules/commander/Commander.cpp:				check_posvel_validity(true, gpos.eph, _eph_threshold_adj, gpos.timestamp, &_last_gpos_fail_time_us,
+modules/commander/Commander.cpp:						      &_gpos_probation_time_us, &status_flags.condition_global_position_valid, status_changed);
+modules/commander/Commander.cpp:			check_posvel_validity(lpos.xy_valid, lpos.eph, _eph_threshold_adj, lpos.timestamp, &_last_lpos_fail_time_us,
+modules/commander/Commander.cpp:					      &_lpos_probation_time_us, &status_flags.condition_local_position_valid, status_changed);
+modules/commander/Commander.cpp:			check_posvel_validity(lpos.v_xy_valid, lpos.evh, _param_com_vel_fs_evh.get(), lpos.timestamp, &_last_lvel_fail_time_us,
+modules/commander/Commander.cpp:					      &_lvel_probation_time_us, &status_flags.condition_local_velocity_valid, status_changed);
+modules/tags:_gpos_probation_time_us	commander/Commander.hpp	/^	hrt_abstime	_gpos_probation_time_us = POSVEL_PROBATION_MIN;$/;"	m	class:Commander::PrearmedMode
+modules/tags:_integrated_time_us	ekf2/ekf2_main.cpp	/^	uint64_t _integrated_time_us = 0;	\/\/\/< integral of gyro delta time from start (uSec)$/;"	m	class:final	file:
+modules/tags:_lpos_probation_time_us	commander/Commander.hpp	/^	hrt_abstime	_lpos_probation_time_us = POSVEL_PROBATION_MIN;$/;"	m	class:Commander::PrearmedMode
+modules/tags:_lvel_probation_time_us	commander/Commander.hpp	/^	hrt_abstime	_lvel_probation_time_us = POSVEL_PROBATION_MIN;$/;"	m	class:Commander::PrearmedMode
+modules/tags:_start_time_us	ekf2/ekf2_main.cpp	/^	uint64_t _start_time_us = 0;		\/\/\/< system time at EKF start (uSec)$/;"	m	class:final	file:
+modules/tags:_time_prev_us	ekf2/ekf2_main.cpp	/^	uint64_t _time_prev_us[GPS_MAX_RECEIVERS] = {};	\/\/\/< the previous value of time_us for that GPS instance - used to detect new data.$/;"	m	class:final	file:
+modules/tags:_total_cal_time_us	ekf2/ekf2_main.cpp	/^	hrt_abstime _total_cal_time_us = 0;	\/\/\/< accumulated calibration time since the last save$/;"	m	class:final	file:
+modules/tags:px4muorb_get_absolute_time	muorb/adsp/px4muorb.cpp	/^int px4muorb_get_absolute_time(uint64_t *time_us)$/;"	f
