@@ -4,3 +4,9 @@
 [submodule "UnRocker_Firmware"]
 	path = UnRocker_Firmware
 	url = https://github.com/jinseobjeong/UnRocker_Firmware
+[submodule "Firmware_clone"]
+	path = Firmware_clone
+	url = https://github.com/jinseobjeong/Firmware_clone.git
+[submodule "Firmware"]
+	path = Firmware
+	url = https://github.com/jinseobjeong/Firmware.git
