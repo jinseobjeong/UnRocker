@@ -6,4 +6,4 @@
 	url = https://github.com/jinseobjeong/Firmware.git
 [submodule "Firmware_clone"]
 	path = Firmware_clone
-	url = https://github.com/jinseobjeong/Firmware_clone
+	url = https://github.com/jinseobjeong/Firmware_clone.git
