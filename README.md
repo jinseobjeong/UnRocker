@@ -1,7 +1,22 @@
 # UnRocker #
-## Test ##
-### Level ###
+### Requirements ###
+## Drone Firmware ##
+Opensource PX4 base
 
+## Automation Script ##
+### Automated Testing ###
+Iterative automated testing code
+### Automated Dataset Generation ###
+Automated dataset generation
 
-!. UnRoker Compile : sitl gazebo optical flow include file TRUE to true
-CMakefile comment version (sitl gazebo, external, optical flow CMakefile) 
+## UnRocker Recovery##
+### DAE design Training ###
+Denoising AutoEncoder
+### Dataset ###
+Automatically generated dataset
+### Test Examples ###
+Basic Testset (IRIS/SOLO)
+Drone Flight Testset
+Actual Injection Testset
+### Real-time Inference ###
+Real-time inference code based on TensorRT
