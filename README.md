@@ -9,7 +9,7 @@ Iterative automated testing code
 ### Automated Dataset Generation ###
 Automated dataset generation
 
-## UnRocker Recovery##
+## UnRocker Recovery ##
 ### DAE design Training ###
 Denoising AutoEncoder
 ### Dataset ###
