@@ -27,27 +27,27 @@ Requirements are specified in "requirements.txt"
 
  - It provides software only testing.
 
-cd UnRocker_FW
-./UnRocker_Gyro_SITL.py or ./UnRocker_Accel_SITL.py
+**$cd UnRocker_FW**
+**$./UnRocker_Gyro_SITL.py or $./UnRocker_Accel_SITL.py**
 
 ### Hardware-In-The-Loop(HITL) Automated Testing 
  - Hardware related testing, so it requires the flight controller (FC).
 
-cd UnRocker_FW
-./UnRocker_Gyro_HITL.py or ./UnRocker_Accel_HITL.py
+**$cd UnRocker_FW**
+**$./UnRocker_Gyro_HITL.py or $./UnRocker_Accel_HITL.py**
 
 ### Automated Dataset Generation (HITL) 
  - Automated Dataset Generation is based on HITL mode.
 
-cd UnRocker_FW
-./UnRocker_TestsetGen_HITL.py 
+**$cd UnRocker_FW**
+**$./UnRocker_TestsetGen_HITL.py** 
 
 ## UnRocker recovery 
 #### DAE design training 
  - Denoising AutoEncoder (DAE) is our core network.
 
-cd UnRocker_DAE_Gyro or UnRokcer_DAE_Accel
-python3 train_conv_autoeoncoder.py
+**$cd UnRocker_DAE_Gyro or UnRokcer_DAE_Accel**
+**$python3 train_conv_autoeoncoder.py**
 
 #### Dataset 
  - Automatically generated dataset from HITL.
@@ -57,20 +57,20 @@ python3 train_conv_autoeoncoder.py
  - Drone flight test data
  - Actual injection test data
 
-cd UnRocker_DAE_Gyro or UnRokcer_DAE_Accel
-python3 train_conv_autoeoncoder.py
+**$cd UnRocker_DAE_Gyro or UnRokcer_DAE_Accel**
+**$python3 train_conv_autoeoncoder.py**
 
 
 #### Realtime Inference 
  - Realtime inference code based on TensorRT
 
-cd UnRocker_DAE_Gyro or UnRokcer_DAE_Accel
-python3 trt_inference.py
+**$cd UnRocker_DAE_Gyro or UnRokcer_DAE_Accel**
+**$python3 trt_inference.py**
 
 ### Reference
 
 ```
-To Be Updated
+** To Be Updated **
 ```
 
 ### Contact
