@@ -2,7 +2,7 @@
 
 ### Requirements 
 
-Requirements are specified in `requirements.txt'
+Requirements are specified in "requirements.txt"
 
 $pip install -re requirements.txt
 
