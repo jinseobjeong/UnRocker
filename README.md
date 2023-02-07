@@ -73,11 +73,11 @@ Requirements are specified in "requirements.txt"
 
 **$python3 trt_inference.py**
 
-### Reference
+## Reference
 
 ```
  To Be Updated 
 ```
 
-### Contact
+## Contact
 **e-mail: jeongjinseob@gmail.com**
