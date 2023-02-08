@@ -1,10 +1,13 @@
 # UnRocking Drones : Foundattions of Acoustic Injection Attacks and Recovery Thereof (NDSS2023)
+---
 
 ### Requirements 
 
 Requirements are specified in "requirements.txt"
 
 **$pip install -r requirements.txt**
+
+---
 
 ## Drone firmware 
 #### Our testbed is based on industry-leading opensource PX4 drone firmware. 
@@ -18,6 +21,8 @@ Requirements are specified in "requirements.txt"
 
 #### Misc 
  - ROMFS (ROM Filesystem) file was revised to commnicate with inference computer.
+ 
+---
 
 ## Automation Script 
 
@@ -44,6 +49,9 @@ Requirements are specified in "requirements.txt"
 **$cd UnRocker_FW**
 
 **$./UnRocker_TestsetGen_HITL.py** 
+
+
+---
 
 ## UnRocker recovery 
 #### DAE design training 
@@ -72,6 +80,8 @@ Requirements are specified in "requirements.txt"
 **$cd UnRocker_DAE_Gyro** or **$cd UnRokcer_DAE_Accel**
 
 **$python3 trt_inference.py**
+
+---
 
 ## Reference
 ### Citation
