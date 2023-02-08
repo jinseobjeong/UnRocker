@@ -1,5 +1,4 @@
 # UnRocking Drones : Foundattions of Acoustic Injection Attacks and Recovery Thereof (NDSS2023)
----
 
 ### Requirements 
 
