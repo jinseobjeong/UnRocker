@@ -86,10 +86,15 @@ Requirements are specified in "requirements.txt"
 ### Citation
 
 @inproceedings{jeong2023unrocker,
+
   title={UnRocking Drones : Foundattions of Acoustic Injection Attacks and Recovery Thereof},
+  
   author={Jeong, Jinseob and Kim, Dongkwan and Jang, Joonha and Noh, Juhwan and Song, Changhun and Kim, Yongdae},
+  
   booktitle={Network and Distributed Systems Security (NDSS) Symposium},
+  
   year={2023}
+  
 }
 
 ### Webpage
